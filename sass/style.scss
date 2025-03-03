@@ -1,0 +1,180 @@
+@use './abstracts/variables' as var;
+@use './base/base';
+
+html {
+    width: 100%;
+}
+
+body {
+    font-family: var.$base-font-family;
+    font-size: var.$base-font-size;
+    padding: 0 80px;
+}
+
+.header {
+    display: flex;
+    padding: 30px 0;
+    align-items: center;
+    margin: 0;
+    gap: 220px;
+}
+
+.container-nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        &.nav-menu {
+            width: 70%;
+            gap: 56px;
+            li {
+                a {
+                    text-decoration: none;
+                    color: var.$black-color;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            li:last-child {
+                margin-left: auto;
+                a {
+                    padding: 10px;
+                    img{
+                        width: 24px;
+                        &:hover {
+                            filter: invert(1); // Invierte el color de la imagen
+                        }
+                    }
+                }
+            }
+        }
+        &.nav-login {
+            gap: 32px;
+            margin-left: auto;
+            li {
+                a {
+                    color: var.$light-gray-color;
+                    &:hover {
+                        color: var.$dark-gray-color;
+                    }
+                }
+            }
+            li:last-child {
+                a {
+                    display: inline-block;
+                    padding: 14px 30px;
+                    background-color: var.$gray-color;
+                    color: var.$white-color;
+                    text-decoration: none;
+                    transition-duration: 1s;
+                    &:hover {
+                        background-color: var.$dark-gray-color;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+.container-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    background-image: url('../img/hero_placeholder@2x.png');
+    background-size: 62%;
+    background-repeat: no-repeat;
+    margin-bottom: 80px;
+}
+
+.hero {
+    width: 50%;
+    padding: 20px 20px 0 40px;
+    margin-top: 70px;
+    background-color: var.$light-white-color;
+    .hero__title {
+        display: flex;
+        margin-bottom: 30px;
+        align-items: start;
+        width: 100%;
+        gap: 20px;
+        h1 {
+            width: 70%;
+            font-family: 'Playfair Display', sans-serif;
+            font-size: 50px;
+        }
+        img {
+            width: 10%;
+            margin-top: 30px;
+        }
+    }
+    p {
+        font-size: 20px;
+        color: var.$gray-color;
+        margin-bottom: 40px;
+    }
+}
+
+.hero__check-list {
+    display: flex;
+    gap: 32px;
+
+    ul {
+        list-style: none; /* Elimina los marcadores predeterminados */
+        padding-left: 0; /* Elimina el padding izquierdo predeterminado */            
+        li {
+            font-size: var.$base-font-size;
+            position: relative; /* Necesario para posicionar el pseudo-elemento */
+            padding-left: 30px; /* Espacio para la imagen */
+            translate: -70px 20px;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%); /* Centra verticalmente */
+              width: 20px; /* Ancho de la imagen */
+              height: 20px; /* Alto de la imagen */
+              background-image: url('../img/icon_check.svg');
+              background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+              background-repeat: no-repeat; /* Evita que la imagen se repita */
+            }
+        }
+        li:first-child {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+
+    article{
+        width: 20%;
+
+        img{
+            width: 64px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: var.$light-gray-color;
+        }
+    }
+
+}
